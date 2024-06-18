@@ -338,11 +338,13 @@ const Resume = forwardRef((props, ref) => {
         setColumns([
             [sections.project, sections.education, sections.summary],
             [sections.workExp, sections.achievement, sections.skills],
+            //eslint-disable-next-line react-hooks/exhaustive-deps
         ]);
     }, []);
 
     useEffect(() => {
         swapSourceTarget(source, target);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [source]);
 
     useEffect(() => {
