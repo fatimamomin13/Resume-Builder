@@ -256,11 +256,11 @@ const Editor = (props) => {
             skills:
                 typeof activeInfo?.detail !== "object" ? activeInfo.detail : "",
         });
-    }, [activeSectionKey]);
+    }, [activeSectionKey,sections,information]);
 
     useEffect(() => {
         setActiveInformation(information[sections[activeSectionKey]]);
-    }, [information]);
+    }, [activeSectionKey, sections, information]);
 
     useEffect(() => {
         const details = activeInformation?.details;
@@ -283,7 +283,7 @@ const Editor = (props) => {
             github: activeInfo.details[activeDetailIndex]?.github || "",
             college: activeInfo.details[activeDetailIndex]?.college || "",
         });
-    }, [activeDetailIndex]);
+    }, [activeDetailIndex, activeSectionKey, sections, information, activeInformation]);
 
     const basicInfoBody = (
         <div>

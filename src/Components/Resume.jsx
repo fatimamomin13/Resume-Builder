@@ -299,6 +299,7 @@ const Resume = forwardRef((props, ref) => {
         ),
     };
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const swapSourceTarget = (source, target) => {
         if (!source || !target) return;
         const tempColumns = [[...columns[0]], [...columns[1]]];
@@ -338,14 +339,19 @@ const Resume = forwardRef((props, ref) => {
         setColumns([
             [sections.project, sections.education, sections.summary],
             [sections.workExp, sections.achievement, sections.skills],
-            //eslint-disable-next-line react-hooks/exhaustive-deps
         ]);
-    }, []);
+    }, [
+        sections.project,
+        sections.education,
+        sections.summary,
+        sections.workExp,
+        sections.achievement,
+        sections.skills,
+    ]);
 
     useEffect(() => {
         swapSourceTarget(source, target);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [source]);
+    }, [source, swapSourceTarget, target]);
 
     useEffect(() => {
         const container = containerRef.current;
