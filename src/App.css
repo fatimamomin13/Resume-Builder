@@ -1,0 +1,9 @@
+.color {
+  background-color: #f00b56, #e30b53
+}
+
+.active {
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(5px);
+  /* Adjust the value to control the slide distance */
+}
